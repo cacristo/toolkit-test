@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  toolkit-database:
+    image: mysql:5.7.28
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: p@ssw0rd
+      MYSQL_DATABASE: toolkit
+      MYSQL_USER: tool
+      MYSQL_PASSWORD: kit2020
+    command: --init-file /data/application/init.sql
+    volumes:
+      - ./init.sql:/data/application/init.sql
+    ports:
+      - "3307:3306"
